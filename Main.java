@@ -1,5 +1,6 @@
 package com.juaracoding;
 
+import org.openqa.selenium.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,6 +10,7 @@ public class    Main {
         //Nama  : I Gede Arya Krisnadi
         System.setProperty("webdriver.chrome.driver","F:\\JuaraCoding\\chromedriver-win64\\chromedriver.exe");
         WebDriver driver =  new ChromeDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
         driver.manage().window().maximize();
         driver.get("https://juice-shop.herokuapp.com");
         System.out.println("Open URL");
@@ -35,6 +37,14 @@ public class    Main {
 
         //add to chart
         driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-search-result/div/div/div[2]/mat-grid-list/div/mat-grid-tile[2]/div/mat-card/div[2]/button/span[1]")).click();
+        delay(2);
+        driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-search-result/div/div/div[2]/mat-grid-list/div/mat-grid-tile[2]/div/mat-card/div[2]/button/span[1]/span")).click();
+        delay(2);
+        driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-search-result/div/div/div[2]/mat-grid-list/div/mat-grid-tile[3]/div/mat-card/div[2]/button/span[1]/span")).click();
+
+        js.executeScript("window.scrollBy(0,10000)");
+        delay(3);
+        //sold item
         driver.findElement(By.xpath("/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-search-result/div/div/div[2]/mat-grid-list/div/mat-grid-tile[4]/div/mat-card/div[3]/button/span[1]/span\n")).click();
 
     }
